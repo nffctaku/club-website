@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if the user is an admin
+    function isAdmin() {
+      return request.auth.uid == 'BPSaKv53y1Vlzh5b12MFXk2ip012';
+    }
+
+    // Rules for each collection
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    match /players/{docId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /news/{docId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /youtubeLinks/{docId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /seasons/{docId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /matches/{docId} {
+      allow get, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /fixtures/{docId} {
+      allow get, list: if isAuthenticated();
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}
