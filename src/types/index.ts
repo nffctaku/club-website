@@ -34,7 +34,7 @@ export interface Player {
   dateOfBirth: string;    // 'YYYY-MM-DD' 形式
   height: number;         // cm単位
   status?: string;        // 例: 'ハムストリング損傷 - 9月 2025下旬'
-  createdAt: Timestamp | FieldValue;
+  createdAt?: Timestamp | FieldValue;
 }
 
 // Stats for a single player in a single match
