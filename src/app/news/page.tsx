@@ -43,11 +43,10 @@ const NewsPage = async () => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-gray-500 dark:text-gray-400">No news articles found. Please add some to the 'news' collection in Firestore.</p>
+        <p className="text-center text-gray-500 dark:text-gray-400">No news articles found. Please add some to the &apos;news&apos; collection in Firestore.</p>
       )}
     </div>
   );
 };
 
 export default NewsPage;
-
