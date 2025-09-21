@@ -3,12 +3,25 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { News } from '@/types';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
+// The News type from @/types has a complex 'createdAt' field.
+// This component receives data that has been serialized, where 'createdAt' is a string.
+// We define a specific type here to match the props exactly.
+interface HeroNewsItem {
+  id: string;
+  title: string;
+  imageUrl: string;
+  category: string;
+  date: string;
+  slug: string;
+  createdAt: string; // This is the key difference
+  content?: string;
+}
+
 interface HeroSectionProps {
-  newsItems: News[];
+  newsItems: HeroNewsItem[];
 }
 
 const PrevButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
