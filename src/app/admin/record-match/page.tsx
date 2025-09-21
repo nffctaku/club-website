@@ -84,7 +84,11 @@ const RecordMatchPage = () => {
 
   const handlePlayerStatChange = (index: number, field: keyof PlayerStat, value: string | number) => {
     const newStats = [...playerStats];
-    (newStats[index] as any)[field] = value;
+    const updatedStat = {
+      ...newStats[index],
+      [field]: value,
+    };
+    newStats[index] = updatedStat;
     setPlayerStats(newStats);
   };
 
