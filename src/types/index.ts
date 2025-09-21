@@ -1,5 +1,3 @@
-import { Timestamp } from 'firebase/firestore';
-
 // For News articles
 export interface News {
   id: string; // Firestore document ID
@@ -9,7 +7,7 @@ export interface News {
   date: string; // ISO 8601 format string
   slug: string;
   content?: string; // For the detail page
-  createdAt: Timestamp;
+  createdAt: any;
 }
 
 // For YouTube Links
@@ -18,7 +16,7 @@ export interface YoutubeLink {
   title: string;
   videoId: string;
   order: number;
-  createdAt: Timestamp;
+  createdAt: any;
 }
 
 // --- Player & Match Records --- //
@@ -34,7 +32,7 @@ export interface Player {
   dateOfBirth: string;    // 'YYYY-MM-DD' 形式
   height: number;         // cm単位
   status?: string;        // 例: 'ハムストリング損傷 - 9月 2025下旬'
-  createdAt: Timestamp;
+  createdAt: any;
 }
 
 // Stats for a single player in a single match
@@ -69,7 +67,7 @@ export interface MatchRecord {
   matchWeek?: number;
   playerStats: PlayerStat[];
   teamStats: TeamStats;
-  createdAt: Timestamp;
+  createdAt: any;
 }
 
 // --- Deprecated / To be reviewed --- //
@@ -86,7 +84,7 @@ export interface Fixture {
   awayTeam: string;
   venue?: 'Home' | 'Away';
   matchWeek?: number;
-  createdAt: Timestamp;
+  createdAt: any;
 }
 
 // --- Deprecated / To be reviewed --- //
